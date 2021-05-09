@@ -3,16 +3,15 @@ package bionfo.galaxyapp.ui.login
 import android.app.Activity
 import android.os.Bundle
 import android.text.Editable
+import android.text.Html
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.HtmlCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import bionfo.galaxyapp.R
@@ -25,6 +24,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_login)
+        val banner = findViewById<TextView>(R.id.banner)
+        val coloredTextHtml = "<font color='#FF4C4C'>Galaxy</font><font color='#45748C'>Tracker</font>"
+        banner.text = HtmlCompat.fromHtml(coloredTextHtml, HtmlCompat.FROM_HTML_MODE_LEGACY)
 
         val username = findViewById<EditText>(R.id.username)
         val password = findViewById<EditText>(R.id.password)
