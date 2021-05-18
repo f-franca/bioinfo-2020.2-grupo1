@@ -61,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
-            finish()
+//            finish()
         })
 
         username.afterTextChanged {
@@ -104,7 +104,8 @@ class LoginActivity : AppCompatActivity() {
         val email = model.email
         val password = model.password
         // TODO : initiate successful logged in experience
-        Log.i(tag, "Estou logado: $email;$password")
+        Log.d(tag, "Estou logado: $email;$password")
+        RequestHandler().historyRequest(email,password,applicationContext);
         Toast.makeText(
                 applicationContext,
                 "$welcome $displayName",
